@@ -1,0 +1,49 @@
+
+
+ <h1 *ngIf="isAddMode">Add Employee</h1>
+ <h1 *ngIf="!isAddMode">Edit Employee</h1>
+<mat-error *ngIf="EmployeeForm.hasError">
+   {{errorMessage | json}}
+</mat-error>
+<mat-card>
+<form [formGroup]="EmployeeForm" (submit)="OnSubmit()" >
+<mat-form-field >
+    <input matInput type="text" appearance="standard" formControlName="ename" placeholder="Enter Employee Name" required>
+  <mat-error  *ngIf="EmployeeForm.get('ename')?.invalid || (EmployeeForm.get('ename')?.dirty || EmployeeForm.get('ename')?.touched)">
+    <div *ngIf="EmployeeForm.get('ename')?.errors?.required">
+      This field is required.
+    </div>
+</mat-error>
+</mat-form-field>
+<mat-form-field >
+    <input matInput type="number" appearance="standard" formControlName="eage" placeholder="Enter Employee Age" required>
+    <mat-error  *ngIf="EmployeeForm.get('eage')?.invalid || (EmployeeForm.get('eage')?.dirty || EmployeeForm.get('eage')?.touched)">
+        <div *ngIf="EmployeeForm.get('eage')?.errors?.required">
+          This field is required.
+        </div>
+    </mat-error>
+  
+</mat-form-field>
+
+  <mat-form-field >
+    
+    <input matInput type="number" appearance="standard" formControlName="esal" placeholder="Enter Employee Salary" required >
+    <mat-error  *ngIf="EmployeeForm.get('esal')?.invalid || (EmployeeForm.get('esal')?.dirty || EmployeeForm.get('esal')?.touched)">
+        <div *ngIf="EmployeeForm.get('esal')?.errors?.required">
+          This field is required.
+        </div>
+    </mat-error>
+ 
+</mat-form-field>
+  
+    <button mat-raised-button color="primary">Submit</button>
+   
+    &nbsp;
+  <button mat-raised-button color="warn" (click)="back()">Cancel</button> 
+  
+</form>
+</mat-card>
+
+<div *ngIf="ActivateHome">
+  <app-home> </app-home>
+</div>

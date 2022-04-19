@@ -1,0 +1,13 @@
+<div class="cardDiv" *ngFor="let proj of Projdata">
+    <mat-card class="card" > 
+        <mat-card-title>Name of Project : {{proj.pname}}</mat-card-title>
+        
+        <mat-card-subtitle>Project Available Date : {{proj.pdate}}</mat-card-subtitle>
+        <mat-card-content>
+            Project details: {{proj.pdetail}}
+        </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="back">
+     <a  routerLink="/home"><button mat-raised-button color="primary">Go To Home</button> </a>
+    </div>

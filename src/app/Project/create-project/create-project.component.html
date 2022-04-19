@@ -1,0 +1,41 @@
+
+<h1 *ngIf="isAddMode">Add Project</h1>
+<h1 *ngIf="!isAddMode">Edit Project</h1>
+<mat-error *ngIf="ProjectForm.hasError">
+  {{errorMessage | json}}
+</mat-error>
+<mat-card>
+    <form [formGroup]="ProjectForm" (submit)="OnSubmit()"  >
+    <mat-form-field >
+        <input matInput type="text" appearance="standard" formControlName="pname" placeholder="Enter Project Name" >
+        <mat-error  *ngIf="ProjectForm.get('pname')?.invalid || (ProjectForm.get('pname')?.dirty || ProjectForm.get('pname')?.touched)">
+          <div *ngIf="ProjectForm.get('pname')?.errors?.required">
+            This field is required.
+          </div>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field >
+        <input matInput type="text" appearance="standard" formControlName="pdetail" placeholder="Enter project details " >
+        <mat-error  *ngIf="ProjectForm.get('pdetail')?.invalid || (ProjectForm.get('pdetail')?.dirty || ProjectForm.get('pdetail')?.touched)">
+          <div *ngIf="ProjectForm.get('pdetail')?.errors?.required">
+            This field is required.
+          </div>
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field >
+        <input matInput type="date" appearance="standard" formControlName="pdate" placeholder="Project starting date" >
+        <mat-error  *ngIf="ProjectForm.get('pdate')?.invalid || (ProjectForm.get('pdate')?.dirty || ProjectForm.get('pdate')?.touched)">
+          <div *ngIf="ProjectForm.get('pdate')?.errors?.required">
+            This field is required.
+          </div>
+        </mat-error>
+      </mat-form-field>
+     
+        <button mat-raised-button color="primary">Submit</button>
+        &nbsp;
+        <button mat-raised-button color="warn" (click)="back()">Cancel</button> 
+    </form>
+    </mat-card>
+    
+    

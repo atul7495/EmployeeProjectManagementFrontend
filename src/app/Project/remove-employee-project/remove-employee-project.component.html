@@ -1,0 +1,14 @@
+<div class="section">
+    <h1>Remove Employee For {{name}} :</h1>
+    <div style="justify-content: center; display: flex; color: red;" *ngIf="empList.length==0" > <h1>{{ProjAlertMessaage}}</h1></div> 
+        <li type="1" *ngFor="let emp of empList">
+                          <input type="checkbox"  [(ngModel)]="emp.isChecked" (change)="changeSelection()">{{emp.ename}}
+        </li>
+        <div class="submit">
+        <button mat-raised-button color="primary" (click)="OnSubmit()">Remove Employee</button>
+    </div>
+
+    <div class="back">
+        <a  routerLink="/home"><button mat-raised-button color="primary">Go To Home</button> </a>
+       </div>
+    </div>

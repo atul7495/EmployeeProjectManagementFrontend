@@ -1,0 +1,14 @@
+<div class="section">
+<h1>Select project For {{name}} :</h1>
+    <li type="1" *ngFor="let proj of projList">
+            <input type="checkbox"  [(ngModel)]="proj.isChecked" (change)="changeSelection()">{{proj.pname}}
+    </li>
+    <div class="submit">
+    <button mat-raised-button color="primary" (click)="OnSubmit()">Submit</button>
+</div>
+
+   
+<div class="back">
+    <a  routerLink="/home"><button mat-raised-button color="primary">Go To Home</button> </a>
+   </div>
+</div>
